@@ -1,0 +1,10 @@
+{
+  "name": "Shaders-FactorioDustry",
+  "displayName": "Shaders FactorioDustr - TexturePack",
+  "author": "[#0000ff]Da[#0050ff]Nte[#0080ff]sLr",
+  "description": "Мод-Текстур-Пак Изменяет Внешний Жидкостей. Был Вырезан Из Мода FactorioDustry. Специално Для Mindustry - Рестора. \nАвтор: [#0000ff]Da[#0050ff]Nte[#0080ff]sLr",
+  "version": "0.2",
+  "hidden": true,
+  "minGameVersion": "125",
+  "dependencies": []
+}
