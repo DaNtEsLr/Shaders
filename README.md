@@ -1,1 +1,1 @@
-# Shaders Экспорт шейдеров из мода FactorioDustry
+# Экспорт шейдеров из мода FactorioDustry
