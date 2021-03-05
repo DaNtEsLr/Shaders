@@ -1,8 +1,8 @@
 {
-  "name": "Shaders-[#0000ff]Da[#0050ff]Nte[#0080ff]sLr",
+  "name": "Shaders",
   "displayName": "Shaders-[#0000ff]Da[#0050ff]Nte[#0080ff]sLr",
   "author": "[#0000ff]Da[#0050ff]Nte[#0080ff]sLr",
-  "description": "Мод-Текстур-Пак Изменяет Внешний Жидкостей. Был Вырезан Из Мода FactorioDustry. Специално Для Mindustry - Рестора. \n\nАвтор: [#0000ff]Da[#0050ff]Nte[#0080ff]sLr. \n\nДискорд DaNtEsLr#2520",
+  "description": "Ru:\n Мод-Текстур-Пак Изменяет Внешний Жидкостей. Был Вырезан Из Мода FactorioDustry. Специално Для Канала Mindustry - Рестор. \n\nАвтор: [#0000ff]Da[#0050ff]Nte[#0080ff]sLr. \nМой Дискорд DaNtEsLr#2520 \n\n En:\n The Mod-Texture-Pack Changes The Appearance Of The Liquid. It Was Cut From The FactoryDustry-TexturePack Mod. Especially For The Channel Mindustry - Рестор.\n My Discord DaNtEsLr#2520",
   "version": "0.3",
   "hidden": true,
   "minGameVersion": "125",
