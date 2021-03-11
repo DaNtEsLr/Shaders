@@ -356,11 +356,6 @@ const bridgeB={
 var water;
 var slag;
 var flyingbuffer;
-Events.run(Trigger.draw, () => {
-	Draw.draw(Layer.flyingUnitLow-0.01, run(()=>{
-		flyingbuffer.resize(Core.graphics.width, Core.graphics.height);
-		flyingbuffer.begin(Color.clear);
-	}));
 	Draw.draw(Layer.flyingUnit+0.01, run(()=>{
 		flyingbuffer.end();
 		flyingbuffer.blit(Shaders.screenspace);
