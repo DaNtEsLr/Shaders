@@ -1,9 +1,9 @@
-{
   "name": "Shaders-[blue]DaNtesLr[]",
   "displayName": "Shaders-[blue]DaNtesLr[]",
   "author": "[blue]DaNtesLr[]",
-  "description": "[blue]Ru[]:\n Мод-Текстур-Пак изменяет внешний жидкостей. Был вырезан из мода FactoryDustry. Специално для канала [orange]Mindustry - Рестор[].\n()Мой Дискорд [blue]DaNtEsLr#2520[]() \n\n[red]En[]:\n The Mod-Texture-Pack Changes the appearance of the liquid. It was cut from the FactoryDustry-TexturePack Mod. Especially for the channel [orange]Mindustry - Рестор[].\n\n()My Discord [blue]DaNtEsLr#2520[]()",
+  "description": "[blue]Ru[]:\n Шейдер, который изменяет внешний вид жидкостей. Взято из мода FactoryDustry-Texture Pack. \nСпециално для канала [orange]Mindustry - Рестор[].\n()Мой Дискорд [blue]DaNtEsLr#0746[]() \n\n[red]En[]:\n A shader that changes the appearance of liquids. Taken from the mod FactoryDustry-Texture Pack. \nEspecially for the channel [orange]Mindustry - Рестор[].\n()My Discord [blue]DaNtEsLr#2520[]()",
   "version": "0.4",
   "hidden": true,
-  "minGameVersion": "125"
+  "minGameVersion": "140.4",
+  "dependencies": []
 }
