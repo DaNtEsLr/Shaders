@@ -1,7 +1,7 @@
 # RU
- Мод-Текстур-Пак изменяет внешний вид жидкостей. Был вырезан из мода "FactoryDustry-TexturePack". Специално для канала "Mindustry - Рестор". 
- Мой Дискорд DaNtEsLr#2520
+ Шейдер, который изменяет внешний вид жидкостей. Взято из мода "FactoryDustry-Texture Pack". Специално для канала "Mindustry - Рестор". 
+ Мой Дискорд DaNtEsLr#0746
 
 # EN
- The Mod-Texture-Pack Changes the appearance of the liquid. It was cut from the "FactoryDustry-TexturePack" Mod. Especially for the channel "Mindustry - Рестор".
+ A shader that changes the appearance of liquids. Taken from the mod "FactoryDustry-Texture Pack". Especially for the channel "Mindustry - Рестор".
  My Discord DaNtEsLr#2520
