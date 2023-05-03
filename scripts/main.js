@@ -291,7 +291,90 @@ cons(e => {
 	var shadowRegionNoRivet = Core.atlas.find("danteslr-shaders-connected-shadows-norivet");
 	var envrionment = Core.atlas.find("grass1").texture;
 	var envpixmap = envrionment.getTextureData().pixmap;
+<<<<<<< HEAD
 	envrionment.load(envrionment.getTextureData());	
+=======
+	armbase = Core.atlas.find("xelos-pixel-texturepack-construct-arm-base");
+	armhead = Core.atlas.find("xelos-pixel-texturepack-construct-arm-head");
+	armheadlarge = Core.atlas.find("xelos-pixel-texturepack-construct-arm-head-large");
+	armconn = Core.atlas.find("xelos-pixel-texturepack-construct-arm-connector");
+	armconnside = Core.atlas.find("xelos-pixel-texturepack-construct-arm-connector-side");
+	armconntickside = Core.atlas.find("xelos-pixel-texturepack-construct-arm-connector-thick-side");
+	armconnjoint = Core.atlas.find("xelos-pixel-texturepack-construct-arm-connector-joint");
+	expoplatform = Core.atlas.find("xelos-pixel-texturepack-construct-platform");
+	weldspark = new Effect(12, cons(e=>{
+		Draw.color(Color.white, Pal.turretHeat, e.fin());
+        Lines.stroke(e.fout() * 0.6 + 0.6);
+
+        Angles.randLenVectors(e.id, 3, 15 * e.finpow(), e.rotation, 3, new Floatc2(){get: (x, y) => {
+            Lines.lineAngle(e.x + x, e.y + y, Mathf.angle(x, y), e.fslope() * 5 + 0.5);
+        }});
+	}));
+	weldglow = new Effect(20, cons(e=>{
+		Draw.color(Color.white, Pal.turretHeat, e.fin());
+        Fill.square(e.x,e.y,e.fout() * 0.6 + 0.6);
+	}));
+	
+	Vars.content.getBy(ContentType.block).each(block=>{
+		/*
+		if(!(block instanceof BaseTurret) &&
+		    !(block instanceof Conveyor) &&
+			!(block instanceof PayloadConveyor) &&
+			!(block instanceof LiquidBlock) &&
+			!(block instanceof UnitFactory) &&
+			!(block instanceof Reconstructor) &&
+			!(block instanceof RepairTurret) &&
+			!(block instanceof MassDriver) &&
+			!(block instanceof Floor) &&
+			!(block instanceof Drill)){
+			changeAtlasToSprite("block",block.name,Core.atlas.find(block.name));
+		}*/
+		
+		if(block instanceof Floor){
+			if(block.variants>0){
+				if(block.variantRegions){
+					for(let i = 0;i<block.variants;i++){
+						directAtlasReplace(block.variantRegions[i], Core.atlas.find("xelos-pixel-texturepack-"+block.name+(i+1)));
+					}
+				}
+			}else{
+				directAtlasReplace(block.variantRegions[0], Core.atlas.find("xelos-pixel-texturepack-"+block.name));
+			}
+			directAtlasReplace(Core.atlas.find(block.name+"-edge"), Core.atlas.find("xelos-pixel-texturepack-"+block.name + "-edge"));
+		}
+		
+		if(block instanceof Prop){
+			if(block.variants>0){
+				if(block.variantRegions){
+					for(let i = 0;i<block.variants;i++){
+						directAtlasReplace(block.variantRegions[i], Core.atlas.find("xelos-pixel-texturepack-"+block.name+(i+1)));
+					}
+				}
+			}else{
+				directAtlasReplace(block.region, Core.atlas.find("xelos-pixel-texturepack-"+block.name));
+			}
+			if(block instanceof StaticWall){
+				directAtlasReplace(block.large, Core.atlas.find("xelos-pixel-texturepack-"+block.name+"-large"));
+			}
+		}
+	});
+	envrionment.load(envrionment.getTextureData());
+	
+	Vars.content.getBy(ContentType.unit).each(unit=>{
+		changeAtlasToSprite("unit",unit.name + "-outline",Core.atlas.find("unit-"+unit.name + "-outline"));
+		unit.loadIcon();
+		changeAtlasToSprite("unit",unit.name,unit.fullIcon);
+	});
+	
+	
+	Blocks.itemBridge.buildType = () =>{
+		return extend(BufferedItemBridge.BufferedItemBridgeBuild, Blocks.itemBridge,deepCopy(bridgeB));
+	}
+	Blocks.phaseConveyor.buildType = () =>{
+		return extend(ItemBridge.ItemBridgeBuild, Blocks.phaseConveyor,deepCopy(bridgeB));
+	}
+	
+>>>>>>> 5979babd839ebeb7f7072140e8bca23f2d1a8531
 })
 );
 
