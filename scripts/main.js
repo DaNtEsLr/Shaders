@@ -1035,84 +1035,6 @@ cons(e => {
 	Blocks.sporeMoss.blendGroup = Blocks.moss;
 	
 	
-	Blocks.siliconSmelter.drawer = extend(DrawBlock,{
-		topreg:null,
-		botreg:null,
-		heatreg:null,
-		flameColor: Color.valueOf("ffc999"),
-		randpos:[],
-		load(block){
-			let alt = Core.atlas.find("xelos-pixel-texturepack-silicon-smelter");
-			this.topreg = getRegion(alt,0,2,2);
-			this.botreg = getRegion(alt,1,2,2);
-			this.heatreg = getRegion(alt,2,2,2);
-			for(var i = 0;i<=20;i++){
-				this.randpos[i] = {x: Mathf.random(3,5)-8,y: Mathf.random(3,12)-8};
-			}
-		},
-		draw(build){
-			if(!this.topreg){
-				this.load(build.block);
-			}
-			Draw.rect(this.botreg, build.x, build.y);
-			
-			if(build.warmup > 0 && this.flameColor.a > 0.001){
-				var g = 0.3;
-				var r = 0.06;
-				var cr = Mathf.random(0.1);	    
-				var a = (((1 - g) + Mathf.absin(Time.time, 8, g) + Mathf.random(r) - r) * build.warmup);
-				Draw.color(getHeatColor(Pal.turretHeat,a*2));
-				Draw.rect(this.heatreg,build.x, build.y);
-				Draw.color();
-			}
-			if(Core.settings.getBool("seethrough")){
-				drawItemClusterInventory(build.x  ,build.y,Items.coal,build.items,this.randpos,0);
-				drawItemClusterInventory(build.x+8,build.y,Items.sand,build.items,this.randpos,10);
-			}
-			Draw.rect(this.topreg, build.x, build.y);
-		}
-	})
-	
-	changeAtlasToSprite("block","silicon-smelter",Blocks.siliconSmelter.region);
-	
-	Blocks.forceProjector.buildType = () =>{
-		return extend(ForceProjector.ForceBuild, Blocks.forceProjector,{
-			draw(){
-				if(!Core.settings.getBool("seethrough")){
-					this.super$draw();
-					return;
-				}
-				Draw.rect(this.block.region, this.x, this.y);
-				let hp = 1.0-(this.buildup / this.block.shieldHealth);
-				
-				if(this.liquids.currentAmount() > 0.001){
-					Drawf.liquid(this.block.topRegion, this.x, this.y, this.liquids.currentAmount() / this.block.liquidCapacity, this.liquids.current().color);
-				}
-				
-				if(hp>0){
-					let bottomlerp = Mathf.clamp(hp*2);
-					let toplerp = Mathf.clamp(hp*2-1);
-					const size = 3.2;
-					
-					Draw.blend(Blending.additive);
-					Draw.color(this.team.color,this.efficiency)
-					Lines.stroke(0.8);
-					
-					Lines.line(this.x,this.y-size , this.x + bottomlerp*size, this.y-size + (bottomlerp*size));
-					Lines.line(this.x,this.y-size , this.x - bottomlerp*size, this.y-size + (bottomlerp*size));
-					
-					Lines.line(this.x+size,this.y , this.x+size - (toplerp*size), this.y + (toplerp*size));
-					Lines.line(this.x-size,this.y , this.x-size + (toplerp*size), this.y + (toplerp*size));
-					
-					Draw.blend();
-					Draw.reset();
-				}
-				this.drawShield();
-			}
-			
-		});
-	}
-	
 	Blocks.airFactory.buildType = ()=>{
 		return extend(UnitFactory.UnitFactoryBuild, Blocks.airFactory,deepCopy(unitFacB));
 	}
@@ -1251,13 +1173,6 @@ cons(e => {
 	}
 
 	
-	Blocks.container.buildType = () =>{
-		return extend(StorageBlock.StorageBuild, Blocks.container,deepCopy(storageB));
-	}
-	Blocks.vault.buildType = () =>{
-		return extend(StorageBlock.StorageBuild, Blocks.vault,deepCopy(storageB));
-	}
-	
 	Blocks.itemBridge.buildType = () =>{
 		return extend(BufferedItemBridge.BufferedItemBridgeBuild, Blocks.itemBridge,deepCopy(bridgeB));
 	}
@@ -1276,20 +1191,6 @@ cons(e => {
 	}
 	Blocks.scrapWallHuge.buildType = () =>{
 		return extend(Wall.WallBuild, Blocks.scrapWallLarge,deepCopy(wallB));
-	}
-	
-	Blocks.copperWall.buildType = () =>{
-		return extend(Wall.WallBuild, Blocks.scrapWall,deepCopy(wallBN));
-	}
-	Blocks.copperWallLarge.buildType = () =>{
-		return extend(Wall.WallBuild, Blocks.scrapWall,deepCopy(wallBN));
-	}
-	
-	Blocks.berylliumWall.buildType = () =>{
-		return extend(Wall.WallBuild, Blocks.scrapWall,deepCopy(wallBN));
-	}
-	Blocks.berylliumWallLarge.buildType = () =>{
-		return extend(Wall.WallBuild, Blocks.scrapWall,deepCopy(wallBN));
 	}
 	
 })
